@@ -1,0 +1,29 @@
+// MONGOOSE HOOKS
+// This are special mongoose function that fires when certain mongoose event happen.
+
+i.e -- after a new user has been saved to the db.
+
+Mongoose uses the traditional function context for hooks to refer to the document being processed.
+
+When you use an arrow function, it does not have its own this context, and it inherits the this value from its enclosing scope. In the case of Mongoose hooks, using an arrow function will result in the arrow function inheriting the this value from the context where the hook was defined, which may not be the document being processed.
+
+
+// PASSWORD HASHING
+
+PASSWORD -> HASHING ALGORITHM -> HASHED PASSWORD
+
+// We will use something called salt to make our password even more secure to avoid hackers from reengineering simple hash password.
+
+
+i.e HSJFLDtest123 - has a salt strings of HSJFLD
+
+
+// COOKIES
+// stores data in user's browsers
+
+i.e
+
+request -----------> server
+                      create COOKIES
+                        * decide what information cookie will hold
+                        * how long a cookie the cookie should last
