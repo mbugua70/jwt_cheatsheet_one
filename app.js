@@ -25,7 +25,7 @@ const dbURI =
 const port = process.env.PORT || 3000;
 
 mongoose
-  .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(dbURI)
   .then((result) =>
     app.listen(port, () => {
       console.log(`Listening to port: ${port}`);
