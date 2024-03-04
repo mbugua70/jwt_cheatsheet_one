@@ -50,8 +50,12 @@ app.get("/set-cookies", (req, res) => {
   // we can also have third arguement of secure: true which will only send the cookie only on secure connection e.g https
   // another arguement could be httpOnly which won't let us access the cookie from the front end using javascript.
 
-  res.cookie("isEmployee", true, { maxAge: 1000 * 60 * 60 * 24 });
+  res.cookie("isEmployee", false, { maxAge: 1000 * 60 * 60 * 24 });
   res.send("You got a new cookie");
 });
 
-app.get("/read-cookies", (req, res) => {});
+app.get("/read-cookies", (req, res) => {
+  const cookies = req.cookies;
+  console.log(cookies);
+  res.send(cookies);
+});

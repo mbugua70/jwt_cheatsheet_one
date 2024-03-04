@@ -27,3 +27,37 @@ request -----------> server
                       create COOKIES
                         * decide what information cookie will hold
                         * how long a cookie the cookie should last
+
+
+
+
+// JSON WEB TOKEN
+
+              email & pass
+LOGIN FORM --------------> server
+                          **  CREDINTIAL CHECK **
+                           - the server will check if the credintial are correct.
+                           - if there are correct the server will create jwt for the user
+                           - send it to the browser to be stored in the cookie
+                           - NOTE:: cookies are send to server by the browser when every request are made e.g requesting a new page
+                           - wen the server gets the token it can verify it to identify the user.
+
+
+JWT SIGNING
+
+-- HEADER --
+- it tells the server what type of signature is being in used.
+
+-- PAYLOAD --
+- contains user id
+
+-- SIGNATURE --
+- makes the token secure.
+
+
+
+::NOTES
+   - when user has successfuly logged in
+   - the header part and payload part will be hashed together
+   - it will use SECRET (secure secret string)
+   - our jwt will be added to the browser cookie (i.e jwt syntax - header.payload.signature)
