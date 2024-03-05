@@ -12,6 +12,14 @@ const handleErrors = (err) => {
     return errors;
   }
 
+  if (err.message.includes("Incorrect email")) {
+    errors.email = "The email is not registered";
+  }
+
+  if (err.message.includes("Incorrect password")) {
+    errors.password = "The password is not correct";
+  }
+
   // validation errors
   if (err.message.includes("user validation failed")) {
     // console.log(err);
@@ -91,4 +99,11 @@ module.exports.login_post = async (req, res) => {
     const errors = handleErrors(err);
     res.status(400).json({ errors });
   }
+};
+
+// logout
+
+module.exports.logout_get = (req, res) => {
+  res.cookie("jwt", "", { maxAge: 1 });
+  res.redirect("/");
 };
