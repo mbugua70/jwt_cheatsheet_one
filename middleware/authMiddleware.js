@@ -25,19 +25,19 @@ const checkUsers = (req, res, next) => {
     jwt.verify(token, "node tokens", async (err, decodedToken) => {
       if (err) {
         console.log(err.message);
-        res.locals.user = null;
+        req.user = user;
         next();
       } else {
         console.log(decodedToken);
         let user = await User.findById(decodedToken.id);
 
-        res.locals.user = user;
+        req.user = user;
         next();
       }
     });
   } else {
     // res.redirect("/login");
-    res.locals.user = null;
+    req.user = user;
     next();
   }
 };
