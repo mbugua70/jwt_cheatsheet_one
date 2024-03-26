@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 const { requireAuth, checkUsers } = require("./middleware/authMiddleware");
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors()); // Apply CORS middleware here
+
 
 // view engine
 app.set("view engine", "ejs");
